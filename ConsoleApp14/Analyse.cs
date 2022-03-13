@@ -38,6 +38,15 @@ namespace CMP1903M_Assessment_1_Base_Code
             foreach (string sentence in text)
             {
                 Console.WriteLine(sentence);
+                Console.WriteLine(sentence.Length);
+                for (int i = 0; i < sentence.Length; i++)
+                {
+                    
+                    if (vowels.Contains(sentence[i].ToString()))
+                    {
+                        values[1]++;
+                    }
+                }
                 
             }
             //values.FindAll().ToString().ToUpper()
