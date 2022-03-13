@@ -46,6 +46,10 @@ namespace CMP1903M_Assessment_1_Base_Code
                     {
                         values[1]++;
                     }
+                    else if (!vowels.Contains(sentence[i].ToString()))
+                    {
+                        values[2]++;
+                    }
                 }
                 
             }
@@ -54,9 +58,9 @@ namespace CMP1903M_Assessment_1_Base_Code
             //values[1] = vowels.Count();
 
             Console.WriteLine("Results");
-            Console.WriteLine(values[0]);
-            Console.WriteLine(values[1]);
-
+            Console.WriteLine("Number of Sentences " + values[0]);
+            Console.WriteLine("Number of Vowels " + values[1]);
+            Console.WriteLine("Number of Consonants " + values[2]);
             return values;
         }
     }
