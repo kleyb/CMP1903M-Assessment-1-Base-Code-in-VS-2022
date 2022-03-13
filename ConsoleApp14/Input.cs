@@ -9,16 +9,21 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Input
     {
         //Handles the text input for Assessment 1
-        string text = "nothing";
+
+
 
         //Method: manualTextInput
         //Arguments: none
         //Returns: string
         //Gets text input from the keyboard
+
         public string manualTextInput()
         {
+            Console.WriteLine("Please enter your sentence: ");
+            string text = Console.ReadLine();
 
             return text;
+
         }
 
         //Method: fileTextInput
@@ -27,6 +32,8 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string fileTextInput(string fileName)
         {
+            Console.WriteLine("Please enter the File location: ");
+            string text = System.IO.File.ReadAllText(fileName);
 
             return text;
         }

@@ -16,6 +16,10 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Calculates and returns an analysis of the text
         public List<int> analyseText(string input)
         {
+            List<string> vowels = new List<string>() { "A", "E", "I", "O", "U", "a", "e", "i", "o", "u" };
+
+            var text = new List<string>(input.Split("."));
+
             //List of integers to hold the first five measurements:
             //1. Number of sentences
             //2. Number of vowels
@@ -28,7 +32,21 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 values.Add(0);
             }
+            //Sets the number of sentences 
+            values[0] = text.Count();
 
+            foreach (string sentence in text)
+            {
+                Console.WriteLine(sentence);
+                
+            }
+            //values.FindAll().ToString().ToUpper()
+            //List<string> vowels = values.FindAll("A","E","I","O","U","a","e","i","o","u");
+            //values[1] = vowels.Count();
+
+            Console.WriteLine("Results");
+            Console.WriteLine(values[0]);
+            Console.WriteLine(values[1]);
 
             return values;
         }
