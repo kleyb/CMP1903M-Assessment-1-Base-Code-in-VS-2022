@@ -32,40 +32,51 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 values.Add(0);
             }
-            //Sets the number of sentences 
-            values[0] = text.Count();
+            
 
+            //Iterates throufh the text
             foreach (string sentence in text)
             {
-                char[] senteceAsChar = sentence.ToCharArray();
-                foreach (char i in senteceAsChar)
+                
+                // Create a new char Array and converts every string in sentence to a char array
+                char[] sentenceAsChar = sentence.ToCharArray();
+                //Iterates through every char in the sentenceAsChar array
+                foreach (char i in sentenceAsChar)
                 {
+                    //checks if any char from sentenceAsChar is also in the char list 'vowels' 
+                    // if true , then it adds 1 to the values[1] index
                     if (vowels.Contains(i) || vowels.Contains(char.ToUpper(i)))
                     {
                         values[1]++;
                     }
+                    // Checks if the char from sentenceAsChar is not punctuation , not a symbol and if its not an empty space 
+                    // If not any of those 3 then it is a Consonant as if it was a vowel it would have been found in the previous if statment.
+                    // then adds 1 to values[2] index
                     else if (!char.IsPunctuation(i) && !char.IsSymbol(i) && !char.IsWhiteSpace(i))
                     {
                         values[2]++;
                     }
-
+                    // Created a new set of if statments so that they would have no relation with the previous on but it is is inside the same loop so to check the same char
+                    // Checks if the char is a UpperCase , if true then adds 1 to the values[3] index
                     if (char.IsUpper(i))
                     {
                         values[3]++;
                     }
+                    // check if the char is a LowerCase , if true then adds 1 to values[4]
                     else if (char.IsLower(i))
                     {
                         values[4]++;
-                    }
-                    
-                }
+                    }                                      
+                }               
+                
             }
+            //Looks for an Empty or Null string in the list , if found , removes it , otherwise does nothing
+            text.Remove(text.Find(string.IsNullOrEmpty));
 
-                //values.FindAll().ToString().ToUpper()
-                //List<string> vowels = values.FindAll("A","E","I","O","U","a","e","i","o","u");
-                //values[1] = vowels.Count();
+            //Sets the number of sentences 
+            values[0] = text.Count();
+            Console.WriteLine("Results");
 
-                Console.WriteLine("Results");
             Console.WriteLine("Number of Sentences " + values[0]);
             Console.WriteLine("Number of Vowels " + values[1]);
             Console.WriteLine("Number of Consonants " + values[2]);
