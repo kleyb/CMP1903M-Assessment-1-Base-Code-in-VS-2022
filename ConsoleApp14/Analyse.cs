@@ -16,7 +16,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Calculates and returns an analysis of the text
         public List<int> analyseText(string input)
         {
-            List<string> vowels = new List<string>() { "A", "E", "I", "O", "U", "a", "e", "i", "o", "u" };
+            List<char> vowels = new List<char>() { 'A','E','I','O','U' };
 
             var text = new List<string>(input.Split("."));
 
@@ -37,30 +37,40 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             foreach (string sentence in text)
             {
-                Console.WriteLine(sentence);
-                Console.WriteLine(sentence.Length);
-                for (int i = 0; i < sentence.Length; i++)
+                char[] senteceAsChar = sentence.ToCharArray();
+                foreach (char i in senteceAsChar)
                 {
-                    
-                    if (vowels.Contains(sentence[i].ToString()))
+                    if (vowels.Contains(i) || vowels.Contains(char.ToUpper(i)))
                     {
                         values[1]++;
                     }
-                    else if (!vowels.Contains(sentence[i].ToString()))
+                    else if (!char.IsPunctuation(i) && !char.IsSymbol(i) && !char.IsWhiteSpace(i))
                     {
                         values[2]++;
                     }
-                }
-                
-            }
-            //values.FindAll().ToString().ToUpper()
-            //List<string> vowels = values.FindAll("A","E","I","O","U","a","e","i","o","u");
-            //values[1] = vowels.Count();
 
-            Console.WriteLine("Results");
+                    if (char.IsUpper(i))
+                    {
+                        values[3]++;
+                    }
+                    else if (char.IsLower(i))
+                    {
+                        values[4]++;
+                    }
+                    
+                }
+            }
+
+                //values.FindAll().ToString().ToUpper()
+                //List<string> vowels = values.FindAll("A","E","I","O","U","a","e","i","o","u");
+                //values[1] = vowels.Count();
+
+                Console.WriteLine("Results");
             Console.WriteLine("Number of Sentences " + values[0]);
             Console.WriteLine("Number of Vowels " + values[1]);
             Console.WriteLine("Number of Consonants " + values[2]);
+            Console.WriteLine("Number of Upper Cases " + values[3]);
+            Console.WriteLine("Number of Lower Cases " + values[4]);
             return values;
         }
     }
