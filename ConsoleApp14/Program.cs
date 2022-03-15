@@ -50,6 +50,8 @@ namespace CMP1903M_Assessment_1_Base_Code
             
 
             List<string> reportAsList = report.outputConsole(parameters) ;
+            WrieToFile writeToFile = new WrieToFile();
+            writeToFile.write(reportAsList);
 
             //TO ADD: Get the frequency of individual letters?
 

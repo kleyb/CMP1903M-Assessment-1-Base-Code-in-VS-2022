@@ -27,7 +27,10 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 Console.WriteLine(line);
             }
+
             return reportAsList;
         }
+        
     }
+   
 }
