@@ -48,7 +48,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             Report report = new Report();
             Console.WriteLine(text);
             
-
+            //Prints the report into a txt file
             List<string> reportAsList = report.outputConsole(parameters) ;
             WrieToFile writeToFile = new WrieToFile();
             writeToFile.write(reportAsList);

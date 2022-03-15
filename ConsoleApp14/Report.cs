@@ -13,7 +13,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //eg.   public void outputConsole(List<int>)
 
         public List<string> outputConsole(List<int> values)
-        {         
+        {   // Creates a new string lists , adds the value list with the meaning of each value into the List      
             List<string> reportAsList = new List<string>
             {
                 "The text you have inserted has: ",
@@ -23,11 +23,12 @@ namespace CMP1903M_Assessment_1_Base_Code
                 values[3] + " Upper Cases ",
                 values[4] + " Lower Cases "
             };
+            //Loops through the list and display it's elements 
             foreach (string line in reportAsList)
             {
                 Console.WriteLine(line);
             }
-
+            //Return the report as a List of Strings
             return reportAsList;
         }
         
