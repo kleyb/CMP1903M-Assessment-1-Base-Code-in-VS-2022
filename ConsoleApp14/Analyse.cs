@@ -31,13 +31,10 @@ namespace CMP1903M_Assessment_1_Base_Code
             for (int i = 0; i < 5; i++)
             {
                 values.Add(0);
-            }
-            
-
+            }   
             //Iterates throufh the text
             foreach (string sentence in text)
-            {
-                
+            {                
                 // Create a new char Array and converts every string in sentence to a char array
                 char[] sentenceAsChar = sentence.ToCharArray();
                 //Iterates through every char in the sentenceAsChar array
@@ -75,13 +72,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             //Sets the number of sentences 
             values[0] = text.Count();
-            Console.WriteLine("Results");
-
-            Console.WriteLine("Number of Sentences " + values[0]);
-            Console.WriteLine("Number of Vowels " + values[1]);
-            Console.WriteLine("Number of Consonants " + values[2]);
-            Console.WriteLine("Number of Upper Cases " + values[3]);
-            Console.WriteLine("Number of Lower Cases " + values[4]);
+            
             return values;
         }
     }
