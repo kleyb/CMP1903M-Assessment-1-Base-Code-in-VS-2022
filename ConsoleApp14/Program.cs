@@ -47,7 +47,9 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Report the results of the analysis
             Report report = new Report();
             Console.WriteLine(text);
-            report.outputConsole(parameters);
+            
+
+            List<string> reportAsList = report.outputConsole(parameters) ;
 
             //TO ADD: Get the frequency of individual letters?
 
