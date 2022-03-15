@@ -99,5 +99,31 @@ namespace CMP1903M_Assessment_1_Base_Code
             
             return longWords;
         }
+        public Dictionary<char,int> frequency (string input)
+        {
+            Dictionary<char, int> frequency = new Dictionary<char, int>();
+            var text = new List<string>(input.Split("."));
+
+            text.Remove(text.Find(string.IsNullOrEmpty));
+            
+            foreach (string sentence in text)
+            {
+                char[] sentenceAsChar = sentence.ToUpper().ToCharArray();
+                
+                foreach (char c in sentenceAsChar)
+                {
+                    if (frequency.ContainsKey(c) && char.IsLetter(c))
+                    {
+                        frequency[c]++;
+                    }
+                    else if (!frequency.ContainsKey(c) && char.IsLetter(c))
+                    {
+                        frequency.Add(c, 1);
+                    }
+                }
+            }
+
+            return frequency;
+        }
     }
 }
