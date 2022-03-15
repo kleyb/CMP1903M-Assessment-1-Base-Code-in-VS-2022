@@ -43,6 +43,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             
             //Receive a list of integers back
             parameters = analyseObj.analyseText(text);
+            List<string> longwords = analyseObj.analyseLongWords(text);
             
             //Report the results of the analysis
             Report report = new Report();

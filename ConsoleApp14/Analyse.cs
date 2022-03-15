@@ -75,5 +75,29 @@ namespace CMP1903M_Assessment_1_Base_Code
             
             return values;
         }
+        public List<string> analyseLongWords (string input)
+        {
+            var text = new List<string>(input.Split("."));
+            
+            text.Remove(text.Find(string.IsNullOrEmpty));
+            
+            List<string> words = new List<string>();
+            foreach (string sentence in text)
+            {
+                words.AddRange(sentence.Split(" "));
+            }
+            words.Remove(words.Find(string.IsNullOrEmpty));
+
+            List<string> longWords = new List<string>();
+            foreach (string word in words)
+            {
+                if (word.Count() > 7)
+                {
+                    longWords.Add(word);
+                }
+            }
+            
+            return longWords;
+        }
     }
 }
