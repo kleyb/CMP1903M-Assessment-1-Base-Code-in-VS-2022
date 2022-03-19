@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CMP1903M_Assessment_1_Base_Code
 {
     public class Input
@@ -32,7 +33,6 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from a .txt file
         public string fileTextInput(string fileName)
         {
-            Console.WriteLine("Please enter the File location: ");
             string text = System.IO.File.ReadAllText(fileName);
 
             return text;

@@ -75,28 +75,39 @@ namespace CMP1903M_Assessment_1_Base_Code
             
             return values;
         }
+        //Creates a list of long words , words longer than 7 
         public List<string> analyseLongWords (string input)
         {
+            //Splits the input by '.' and assigns to the list text
             var text = new List<string>(input.Split("."));
             
+            //Removes any empty or null indexes
             text.Remove(text.Find(string.IsNullOrEmpty));
             
+            // Creates a new list of words
             List<string> words = new List<string>();
+            
+            // Loops thorugh the text
             foreach (string sentence in text)
             {
-                words.AddRange(sentence.Split(" "));
+                //Splits the sentences by " " and addes the splitted list into words
+                words.AddRange(sentence.Split(" "));                
             }
+            //Removes any null or Empty space in the list
             words.Remove(words.Find(string.IsNullOrEmpty));
 
+            //Creates a new list that will store the new values
             List<string> longWords = new List<string>();
+            // Goes through the list in words
             foreach (string word in words)
             {
+                //if the word is longer than 7 characters it addes it inot the longWords list
                 if (word.Count() > 7)
                 {
                     longWords.Add(word);
                 }
             }
-            
+            //Returns longWords list
             return longWords;
         }
         public Dictionary<char,int> frequency (string input)
