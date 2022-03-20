@@ -32,7 +32,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
 
             //ask if the user would like to see the frequency of letters
-            Console.WriteLine("Would you also like to see the frequency of letters? ");
+            Console.WriteLine("Would you also like to see the frequency of letters? Please enter 'Yes' to confirm, anything else to cancel ");
             //Check for the answer
             if ((option = Console.ReadLine().ToString().ToUpper()) == "YES")
             {

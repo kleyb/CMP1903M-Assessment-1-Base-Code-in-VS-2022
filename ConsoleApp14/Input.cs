@@ -34,21 +34,25 @@ namespace CMP1903M_Assessment_1_Base_Code
         public string fileTextInput()
         {
             string text;
+            //Loop keeps to keep asking for an input
             while (true)
-            {
-                
+            {                
+                //Tries to open and read the file at the indicated location by the user
                 try
                 {
                     Console.WriteLine("Please enter the File location: ");
+                    // Open and read the file at the indicated location , then stores at the variable text
                     text = System.IO.File.ReadAllText(Console.ReadLine());
                     break;
                 }
+                //if the indicated location is not valid , an error is shown and then the loop continues
                 catch (Exception)
                 {
                     Console.WriteLine("The Location is not valid , please enter a valid location");
                     continue;
                 }
             }
+            //Return the text
             return text;
         }
 
