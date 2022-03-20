@@ -42,8 +42,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 if ((option2 = Console.ReadLine().ToString().ToLower()) == "yes")
                 {
                     Input keyboardInput = new();
-                    Console.WriteLine("Please enter the File location: ");
-                    text = keyboardInput.fileTextInput(Console.ReadLine());
+                    text = keyboardInput.fileTextInput();
 
                     loop = false;
                 }

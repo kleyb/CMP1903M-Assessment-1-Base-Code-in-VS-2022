@@ -11,8 +11,8 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
         public void write(List<string> reportAsList, Dictionary<char,int> frequency)
         {   // Asks the user if he wants to print the report , if no then nothing is done
-            Console.WriteLine("Would you like to print the report ?");
-            if (Console.ReadLine() == "yes")
+            Console.WriteLine("Would you like to print the report ? Please enter 'Yes' to confirm, anything else to cancel ");
+            if (Console.ReadLine().ToString().ToUpper() == "YES")
             {   
                 // Asks the user to give the file a name and stores it into fileName
                 Console.WriteLine("Please write a name for the file");
@@ -26,11 +26,11 @@ namespace CMP1903M_Assessment_1_Base_Code
                 File.WriteAllLines(fileLocation + fileName + ".txt", reportAsList);
                 
                 //Display that the file has been printed sucessfully 
-                Console.WriteLine("The Report has been printed ");
+                Console.WriteLine("The Report has been printed at the indicated location ");
 
                 //Ask the user if he wants to add the frequency of letters into the report
-                Console.WriteLine("Would you also like to add the frequency to your report?");
-                if (Console.ReadLine() == "yes")
+                Console.WriteLine("Would you also like to add the frequency to your report? Please enter 'Yes' to confirm, anything else to cancel ");
+                if (Console.ReadLine().ToString().ToUpper() == "YES")
                 {
                    //Iterates through the dictionary pairs of keys and values
                     foreach (KeyValuePair<char,int> i in frequency)
@@ -56,7 +56,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
             else // if there is no long words in the longWords list , displays a message to the user
             {
-                Console.WriteLine("There are no words longer than 7 Characters, therefore a longWords File has not been created");
+                Console.WriteLine("There are no words longer than 7 Characters, therefore a longWords File has not been created ");
             }
         }
 

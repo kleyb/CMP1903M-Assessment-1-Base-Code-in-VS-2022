@@ -31,10 +31,24 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Arguments: string (the file path)
         //Returns: string
         //Gets text input from a .txt file
-        public string fileTextInput(string fileName)
+        public string fileTextInput()
         {
-            string text = System.IO.File.ReadAllText(fileName);
-
+            string text;
+            while (true)
+            {
+                
+                try
+                {
+                    Console.WriteLine("Please enter the File location: ");
+                    text = System.IO.File.ReadAllText(Console.ReadLine());
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("The Location is not valid , please enter a valid location");
+                    continue;
+                }
+            }
             return text;
         }
 

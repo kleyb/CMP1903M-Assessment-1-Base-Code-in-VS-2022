@@ -42,14 +42,14 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     //checks if any char from sentenceAsChar is also in the char list 'vowels' 
                     // if true , then it adds 1 to the values[1] index
-                    if (vowels.Contains(i) || vowels.Contains(char.ToUpper(i)))
+                    if (vowels.Contains(char.ToUpper(i)))
                     {
                         values[1]++;
                     }
                     // Checks if the char from sentenceAsChar is not punctuation , not a symbol and if its not an empty space 
                     // If not any of those 3 then it is a Consonant as if it was a vowel it would have been found in the previous if statment.
                     // then adds 1 to values[2] index
-                    else if (!char.IsPunctuation(i) && !char.IsSymbol(i) && !char.IsWhiteSpace(i))
+                    else if (char.IsLetter(i) && !vowels.Contains(char.ToUpper(i)))
                     {
                         values[2]++;
                     }
@@ -101,8 +101,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 // Finds puntuation at the index words[i] and replaces the puntuation with ""
                 words[i] = System.Text.RegularExpressions.Regex.Replace(words[i], @"[^\w\d\s]", "");
-            }
-            
+            }            
 
             //Creates a new list that will store the new values
             List<string> longWords = new List<string>();
