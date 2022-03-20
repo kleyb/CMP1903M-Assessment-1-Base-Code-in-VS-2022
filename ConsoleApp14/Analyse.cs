@@ -94,7 +94,15 @@ namespace CMP1903M_Assessment_1_Base_Code
                 words.AddRange(sentence.Split(" "));                
             }
             //Removes any null or Empty space in the list
-            words.Remove(words.Find(string.IsNullOrEmpty));
+            words.Remove(words.Find(string.IsNullOrWhiteSpace));
+
+            //Goes Thorugh the list words
+            for (int i = 0; i < words.Count(); i++)
+            {
+                // Finds puntuation at the index words[i] and replaces the puntuation with ""
+                words[i] = System.Text.RegularExpressions.Regex.Replace(words[i], @"[^\w\d\s]", "");
+            }
+            
 
             //Creates a new list that will store the new values
             List<string> longWords = new List<string>();
@@ -110,30 +118,36 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Returns longWords list
             return longWords;
         }
+       //Creates a Dictionary to count the frequency of letters
         public Dictionary<char,int> frequency (string input)
         {
+            //Declares a new dictionary with char as its key and int as values
             Dictionary<char, int> frequency = new Dictionary<char, int>();
+            //takes the text and splits per sentence
             var text = new List<string>(input.Split("."));
-
+            //removes any null or empty sentences
             text.Remove(text.Find(string.IsNullOrEmpty));
-            
+            // Iterates through the text
             foreach (string sentence in text)
             {
+                // Converts each sentence into an Array of Chars and makes it uppercase 
                 char[] sentenceAsChar = sentence.ToUpper().ToCharArray();
-                
+                //Iterates thorough the char Array
                 foreach (char c in sentenceAsChar)
                 {
+                    //if there is already a key with current char , it adds 1 to the value
                     if (frequency.ContainsKey(c) && char.IsLetter(c))
                     {
                         frequency[c]++;
                     }
+                    // if there is not key corresponding to the current char , it adds a new key with it and 1 as it's value
                     else if (!frequency.ContainsKey(c) && char.IsLetter(c))
                     {
                         frequency.Add(c, 1);
                     }
                 }
             }
-
+            // Returns the dictionary 
             return frequency;
         }
     }

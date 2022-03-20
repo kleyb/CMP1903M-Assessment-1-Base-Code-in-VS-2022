@@ -14,13 +14,19 @@ namespace CMP1903M_Assessment_1_Base_Code
             string text = "";
             string option = "";
             string option2 = "";
+            bool loop = true;
 
             //Local list of integers to hold the first five measurements of the text
             List<int> parameters = new List<int>();
 
-            //Create 'Input' object
-            //Get either manually entered text, or text from a file
-            bool loop = true;
+            // Create a new Analyse Object
+            Analyse analyseObj = new Analyse();
+
+            //The WriteToFile Object allows the Report to printed into a text File
+            WrieToFile writeToFile = new WrieToFile();
+
+            //Created a new Report obj, which will report the result of the Analyses
+            Report report = new Report();            
 
             while (loop == true)
             {
@@ -38,6 +44,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Input keyboardInput = new();
                     Console.WriteLine("Please enter the File location: ");
                     text = keyboardInput.fileTextInput(Console.ReadLine());
+
                     loop = false;
                 }
                 else
@@ -45,33 +52,30 @@ namespace CMP1903M_Assessment_1_Base_Code
                     Console.WriteLine("You have entered 'No' on both options. Please select how would you like to enter your text");                    
                 }                
             }
+            //Display the text the user entered
             Console.WriteLine(text);
 
-            // Create a new Analyse Object
-            Analyse analyseObj = new Analyse();
-            
             //Passes the text into the analyseText the AnalyseObj, receives the list of measuments  
             parameters = analyseObj.analyseText(text);
             
-            //Created a list of long words , longer than 7 characters 
-            List<string> longwords = analyseObj.analyseLongWords(text);
-
             // Analyses the Text and returns a list of frequency of letters
             //Returns a dictionary and stores it into frequency
             Dictionary<char,int> frequency = analyseObj.frequency(text);
+                        
+            //The report Obj prints the Report to the console and returns a list                        
+            List<string> reportAsList = report.outputConsole(parameters,frequency) ;            
 
-            //Created a new Report obj, which will report the result of the Analyses
-            //The report Obj prints the Report to the console and returns a list 
-            Report report = new Report();            
-            List<string> reportAsList = report.outputConsole(parameters,frequency) ;
-            
-            //The WriteToFile Object allows the Report to printed inot a text File
-            WrieToFile writeToFile = new WrieToFile();
             //Prints report into a text File
-            writeToFile.write(reportAsList);
+            writeToFile.write(reportAsList,frequency);
 
-            
+            if (loop == false)
+            {
+                //Created a list of long words , longer than 7 characters 
+                List<string> longwords = analyseObj.analyseLongWords(text);
 
+                //Creates a File of longWords
+                writeToFile.writeLongWords(longwords);
+            }
             Console.ReadKey();
         }
 
