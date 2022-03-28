@@ -46,9 +46,13 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                     loop = false;
                 }
+                else if (option.ToLower() == "no" && option2.ToLower() == "no")
+	            {
+                    Console.WriteLine("You have entered 'No' on both options. Please select how would you like to enter your text");
+	            }
                 else
                 {
-                    Console.WriteLine("You have entered 'No' on both options. Please select how would you like to enter your text");                    
+                    Console.WriteLine("You have entered a invalid input on one of the questions. Please enter 'Yes or No'" );
                 }                
             }
             //Display the text the user entered
