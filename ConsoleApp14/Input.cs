@@ -11,8 +11,6 @@ namespace CMP1903M_Assessment_1_Base_Code
     {
         //Handles the text input for Assessment 1
 
-
-
         //Method: manualTextInput
         //Arguments: none
         //Returns: string
@@ -20,9 +18,11 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         public string manualTextInput()
         {
+            // Asks the user for his input
             Console.WriteLine("Please enter your sentence: ");
+            //Stores the user input into text
             string text = Console.ReadLine();
-
+            //returns text
             return text;
 
         }

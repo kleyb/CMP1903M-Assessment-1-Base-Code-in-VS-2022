@@ -46,14 +46,14 @@ namespace CMP1903M_Assessment_1_Base_Code
                     {
                         values[1]++;
                     }
-                    // Checks if the char from sentenceAsChar is not punctuation , not a symbol and if its not an empty space 
-                    // If not any of those 3 then it is a Consonant as if it was a vowel it would have been found in the previous if statment.
+                    // Checks if the char from sentenceAsChar is a letter and vowels doesn't not contains it 
+                    // If passed the cheks it is a Consonant as if it was a vowel it would have been found in the previous if statement.
                     // then adds 1 to values[2] index
                     else if (char.IsLetter(i) && !vowels.Contains(char.ToUpper(i)))
                     {
                         values[2]++;
                     }
-                    // Created a new set of if statments so that they would have no relation with the previous on but it is is inside the same loop so to check the same char
+                    // Created a new set of if statments so that they would have no relation with the previous one but it is is inside the same loop so to check the same char
                     // Checks if the char is a UpperCase , if true then adds 1 to the values[3] index
                     if (char.IsUpper(i))
                     {
@@ -96,7 +96,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Removes any null or Empty space in the list
             words.Remove(words.Find(string.IsNullOrWhiteSpace));
 
-            //Goes Thorugh the list words
+            //Goes Through the list words
             for (int i = 0; i < words.Count(); i++)
             {
                 // Finds puntuation at the index words[i] and replaces the puntuation with ""
@@ -108,7 +108,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             // Goes through the list in words
             foreach (string word in words)
             {
-                //if the word is longer than 7 characters it addes it inot the longWords list
+                //if the word is longer than 7 characters it adds it into the longWords list
                 if (word.Count() > 7)
                 {
                     longWords.Add(word);
@@ -120,7 +120,7 @@ namespace CMP1903M_Assessment_1_Base_Code
        //Creates a Dictionary to count the frequency of letters
         public Dictionary<char,int> frequency (string input)
         {
-            //Declares a new dictionary with char as its key and int as values
+            //Declares a new dictionary with char as it's key and int as values
             Dictionary<char, int> frequency = new Dictionary<char, int>();
             //takes the text and splits per sentence
             var text = new List<string>(input.Split("."));
